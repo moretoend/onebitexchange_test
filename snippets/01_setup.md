@@ -1,5 +1,7 @@
 # Setup Inicial
 
+Nesta aula faremos iniciar e configurar nosso projeto para operar com RSpec para testes e conectar ao Postgres
+
 
 
 **1- Vamos criar nosso projeto, dentro da pasta desejada, rode no terminal os comandos a baixo:**

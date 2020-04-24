@@ -15,28 +15,12 @@ gem 'rest-client'
 **2- Instale com o comendo:**
 
 ```shell
-bundle install
+docker-compose run --rm app bundle install
 ```
 
 
 
-**3- Embora tenhamos instalado o RSpec, ainda não o configuramos. Execute o seguinte comando**
-
-```shell
-rails g rspec:install
-```
-
-
-
-**4- Como ele cria a pasta `specs`, podemos apagar o a pasta `test` do nosso diretório**
-
-```shell
-rm -r test
-```
-
-
-
-**5- Agora crie uma pasta chamada `specs/services` e dentro dela um arquivo chamado exchange_service_spec.rb:**
+**3- Agora crie uma pasta chamada `specs/services` e dentro dela um arquivo chamado exchange_service_spec.rb:**
 
 ```shell
 mkdir spec/services
@@ -45,7 +29,7 @@ touch spec/services/exchange_service_spec.rb
 
 
 
-**6- Adicione o seguinte conteúdo em `spec/services/exchange_service_spec.rb`**
+**4- Adicione o seguinte conteúdo em `spec/services/exchange_service_spec.rb`**
 
 ```ruby
 require 'rails_helper'
@@ -84,10 +68,10 @@ end
 
 
 
-**7- Rode o teste (irá falhar):**
+**5- Rode o teste (irá falhar):**
 
 ```shell
-rspec spec/services/exchange_service_spec.rb
+docker-compose run --rm app bundle exec rspec spec/services/exchange_service_spec.rb
 ```
 
 

@@ -6,8 +6,8 @@ Nesta aula vamos instalar as dependencias do frontend com o Yarn
 
 **1- Agora vamos instalar o bootstrap no nosso projeto:**
 
-```
-yarn add bootstrap
+```shell
+docker-compose run --rm app bundle exec yarn add bootstrap
 ```
 
 

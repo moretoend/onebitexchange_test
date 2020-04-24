@@ -7,7 +7,7 @@ Nesta aula faremos o teste para o request de conversão de moeda
 **1- Rode no seu terminal:**
 
 ```shell
-rails g controller Exchanges index convert --no-controller-specs --no-helper-specs --no-view-specs
+docker-compose run --rm app bundle exec rails g controller Exchanges index convert --no-controller-specs --no-helper-specs --no-view-specs
 ```
 
 > Deixaremos que ele crie apenas os testes de request
@@ -51,7 +51,7 @@ end
 **3-Rode o teste:**
 
 ```shell
-rspec spec/requests/exchanges_request_spec.rb
+docker-compose run --rm app bundle exec rspec spec/requests/exchanges_request_spec.rb
 ```
 
 

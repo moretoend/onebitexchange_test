@@ -284,7 +284,7 @@ end
 **12- Rode o teste:**
 
 ```shell
-rspec spec/requests/exchanges_request_spec.rb
+docker-compose run --rm app bundle exec rspec spec/requests/exchanges_request_spec.rb
 ```
 
 

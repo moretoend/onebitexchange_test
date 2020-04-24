@@ -34,7 +34,7 @@ end
 **3- Rode o teste de request novamente:**
 
 ```shell
-rspec spec/requests/exchanges_request_spec.rb
+docker-compose run --rm app bundle exec rspec spec/requests/exchanges_request_spec.rb
 ```
 
 > Com as rotas ajustadas e controller preenchido, nosso teste passou
@@ -44,7 +44,7 @@ rspec spec/requests/exchanges_request_spec.rb
 **4- Suba o servidor do Rails e teste a rota raiz**
 
 ```
-rails s
+docker-compose up
 ```
 
 > Para testar, acesse **http://localhost:3000** no seu navegador. Ele vai aparecer uma página apenas com titulo já que ainda não construímos nossa página

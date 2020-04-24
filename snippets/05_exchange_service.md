@@ -52,7 +52,7 @@ end
 **3 - Vamos entrar no console para testar**
 
 ```shell
-rails c
+docker-compose run --rm app bundle exec rails c
 ```
 
 

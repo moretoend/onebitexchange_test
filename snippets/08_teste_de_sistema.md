@@ -39,7 +39,7 @@ end
 **3- Rode o teste:**
 
 ```shell
-rspec spec/system/exchange_index_system_spec.rb
+docker-compose run --rm app bundle exec rspec spec/system/exchange_index_system_spec.rb
 ```
 
 

@@ -36,7 +36,7 @@ require('./exchanges')
 **4- Execute todos os testes**
 
 ```shell
-rspec
+docker-compose run --rm app bundle exec rspec
 ```
 
 > Todos os testes estarão passando = )

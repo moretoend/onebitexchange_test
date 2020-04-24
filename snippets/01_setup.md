@@ -1,20 +1,10 @@
 # Setup Inicial
 
-Nesta aula faremos iniciar e configurar nosso projeto para operar com RSpec para testes e conectar ao Postgres
+Nesta aula vamos configurar nosso projeto para operar com RSpec para testes e conectar ao Postgres
 
 
 
-**1- Vamos criar nosso projeto, dentro da pasta desejada, rode no terminal os comandos a baixo:**
-
-```
-gem install rails -v 6.0.2.2
-rails new onebit_exchange --database=postgresql
-cd onebit_exchange
-```
-
-
-
-**2- Adicione no seu Gemfile dentro do bloco ‘group :development, :test’**
+**1- Adicione no seu Gemfile dentro do bloco ‘group :development, :test’**
 
 ```
 gem 'rspec-rails', '~> 4.0'
@@ -22,7 +12,7 @@ gem 'rspec-rails', '~> 4.0'
 
 
 
-**3- Instale as gems:**
+**2- Instale as gems:**
 
 ```
 bundle install
@@ -30,16 +20,32 @@ bundle install
 
 
 
-**4- Altere seu arquivo config/database.yml para:**
+**3- Para configurar o RSpec, execute o seguinte comando**
 
+```shell
+docker-compose run --rm app bundle exec rails g rspec:install
 ```
+
+
+
+**4- Como ele cria a pasta `specs`, podemos apagar o a pasta `test` do nosso diretório**
+
+```shell
+rm -r test
+```
+
+
+
+**5- Altere seu arquivo config/database.yml para:**
+
+```yaml
 default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: localhost
+  host: db
   user: postgres
-  password: postgres
+  password: <%= ENV['DB_PASSWORD'] %>
 
 
 development:
@@ -56,23 +62,22 @@ production:
   <<: *default
   database: onebit_exchange_production
   username: onebit_exchange
-  password: <%= ENV['EXCHANGE_DATABASE_PASSWORD'] %>
 ```
 
 
 
-**5- Vamos criar nosso database:**
+**6- Vamos criar nosso database:**
 
 ```
-rails db:create db:migrate
+docker-compose run --rm app bundle exec rails db:create db:migrate
 ```
 
 
 
-**6- Por último, vamos iniciar o servidor e testar no nosso navegador**
+**8- Por último, vamos iniciar o servidor e testar no nosso navegador**
 
 ```shell
-rails s
+docker-compose up
 ```
 
 > Acesse o navegador em **http://localhost:3000**

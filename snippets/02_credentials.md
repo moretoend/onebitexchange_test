@@ -7,7 +7,7 @@ Nesta aula vamos utilizar o "credentials" do Rails para armazenar nossa chave de
 **1- Primeiro vamos abrir o editor do arquivo de credenciais**
 
 ```shell
-EDITOR=nano rails credentials:edit
+docker-compose run --rm -e EDITOR=nano app bundle exec rails credentials:edit
 ```
 
 > O Rails possui o um arquivo `config/credentials.yml.enc` que é um arquivo criptografado utilizado para armazenar dados sensíveis como chaves de APIs

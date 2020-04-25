@@ -1,5 +1,5 @@
 {
-  "engines" : { "node" : ">=12" },
+  "engines" : { "node" : ">=10" },
   "name": "onebit_exchange",
   "private": true,
   "dependencies": {

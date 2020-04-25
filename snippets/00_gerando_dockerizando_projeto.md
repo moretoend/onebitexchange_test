@@ -24,9 +24,13 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-# Instala nossas dependencias
+# Instalar nossas dependencias
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
 nodejs yarn build-essential libpq-dev imagemagick git-all nano
+
+# Instalar Chrome
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
 # Instalar bundler
 RUN gem install bundler
